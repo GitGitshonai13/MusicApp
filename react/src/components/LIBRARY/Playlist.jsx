@@ -47,8 +47,8 @@ const Playlist = () => {
           onClick={toggleSortModal} 
           className="flex flex-col items-center py-6 px-8 text-3xl rounded-3xl" // Larger padding and font size
         >
-          <img src="/public/images/sort.png" alt="Sort Icon" className="w-12 h-12" /> {/* Larger icon */}
-          <span className="text-lg text-gray-600">並び替え</span>
+          <img src="/public/images/sort.png" alt="Sort Icon" className="w-10 h-10" /> {/* Larger icon */}
+          <span className="text-base text-gray-600">並び替え</span>
         </button>
       </div>
 

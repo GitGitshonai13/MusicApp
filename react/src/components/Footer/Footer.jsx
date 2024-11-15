@@ -101,7 +101,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="min-w-full h-[115px] bg-amber-50 text-black flex justify-between border-2 border-gray p-3 fixed bottom-0 z-20">
+    <footer className="min-w-full h-1/7 bg-amber-50 text-black flex justify-between border-2 border-gray p-3 fixed bottom-0 z-20">
       <div className="absolute top-0 left-0 right-0 h-1 bg-white" style={{ width: '100%' }}>
         <div className="h-1 bg-gray-600" style={{ width: `${progress}%` }} />
       </div>
@@ -126,13 +126,13 @@ const Footer = () => {
 
       <div className="flex items-center space-x-10">
         <button className="button-hover">
-          <img src="/images/next.png" alt="left" className="transform -scale-x-100 w-[30px] h-[30px]" />
+          <img src="/images/next.png" alt="left" className="transform -scale-x-100 w-6 h-6" />
         </button>
         <button className="button-hover" onClick={togglePlayPause}>
-          <img src={isPlaying ? "/images/play.png" : "/images/stop.png"} alt="play/pause" className={isPlaying ? "w-[35px] h-[35px]" : "w-[50px] h-[50px]"} />
+          <img src={isPlaying ? "/images/play.png" : "/images/stop.png"} alt="play/pause" className={isPlaying ? "w-8 h-8" : "w-11 h-11"} />
         </button>
         <button className="button-hover">
-          <img src="/images/next.png" alt="right" className="w-[30px] h-[30px]" />
+          <img src="/images/next.png" alt="right" className="w-6 h-6" />
         </button>
       </div>
 
@@ -141,7 +141,7 @@ const Footer = () => {
           <img 
             src={isMuted ? "/images/mute.png" : (volume > 0 ? "/images/volume.png" : "/images/mute.png")} 
             alt="volume" 
-            className="w-[30px] h-[30px] m-3" 
+            className="w-7 h-7 m-3" 
           />
         </button>
         <Slider onVolumeChange={handleVolumeChange} initialVolume={volume}/>

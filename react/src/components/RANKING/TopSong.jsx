@@ -83,12 +83,15 @@ const TopSong = () => {
     <div className="relative rounded-lg mx-20">
       {error && <p className="text-red-500 mb-4">{error}</p>}
       
-      {/* Genre Selection Buttons */}
-      <div className="mb-10 space-x-4">
+      <div className="mb-10 flex flex-wrap gap-4">
         {genres.map((genre) => (
           <button
             key={genre}
-            className={`rounded-3xl w-36 h-12 ${selectedGenre === genre ? 'bg-amber-300 border-[2px] border-white text-black' : 'bg-white border-[2px] border-amber-300 hover:bg-gray-100 text-gray-600'}`}
+            className={`rounded-3xl w-36 h-12 ${
+              selectedGenre === genre
+                ? 'bg-amber-300 border-2 border-white text-black'
+                : 'bg-white border-2 border-amber-300 hover:bg-gray-100 text-gray-600'
+            }`}
             onClick={() => setSelectedGenre(genre)}
           >
             {genre}
@@ -96,39 +99,51 @@ const TopSong = () => {
         ))}
       </div>
 
+      <button
+        onClick={handlePrevious}
+        className="absolute left-[-70px] w-12 h-12 mt-8 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-gray-200 transition"
+        style={{
+          top: `${(displayedSongs.length / 10) * 100 / 2}%`, // 10要素分の高さの1/10の中央位置
+        }}
+      >
+        <img src="public/images/move_right.jpeg" alt="Previous" className="w-6 h-6" />
+      </button>
+
       <div className="grid grid-cols-2 gap-1 bg-gray-100">
         {displayedSongs.map((song, index) => {
           const imageUrl = song.image_file_url
             ? `http://127.0.0.1:5000/uploads/${song.image_file_url}`
-            : 'https://via.placeholder.com/90';
+            : 'https://via.placeholder.com/70';
           return (
             <div
               key={song.id}
-              className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-md transition transform cursor-pointer relative"
+              className="flex items-center space-x-4 bg-white p-2 rounded-lg shadow-sm transition transform cursor-pointer relative"
               onClick={() => handleSongClick(song)}
               onMouseEnter={() => setHoveredSongId(song.id)}
               onMouseLeave={() => setHoveredSongId(null)}
             >
-              <span className="text-xl font-bold text-gray-800 w-8 text-center">{page * 10 + index + 1}</span>
+              <span className="text-sm font-bold text-gray-800 w-4 text-center">{page * 10 + index + 1}</span>
               <img
                 src={imageUrl}
                 alt={song.music_name}
-                className="w-[90px] h-[90px] object-cover rounded-md shadow-md"
+                className="w-16 h-16 object-cover rounded-md shadow-md"
                 onError={(e) => {
-                  e.target.src = 'https://via.placeholder.com/90';
+                  e.target.src = 'https://via.placeholder.com/70';
                 }}
               />
               <div className="flex-1">
-                <p className="text-lg font-semibold text-gray-900 mb-1">{song.music_name}</p>
-                <p className="text-base text-gray-600 mb-1">{song.artist_name}</p>
+                <p className="text-base font-semibold text-gray-900 mb-1 truncate">{song.music_name}</p>
+                <p className="text-sm text-gray-600 mb-1 truncate">{song.artist_name}</p>
               </div>
-              <div className="flex items-center justify-end space-x-4">
+              <div className="flex items-center justify-end space-x-2">
                 {hoveredSongId === song.id && (
-                  <button onClick={(e) => {
-                    e.stopPropagation();
-                    handleAddToPlaylist(song); // Call the add to playlist function
-                  }}>
-                    <img src="/public/images/download.png" className="w-7 h-7" alt="Download" />
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleAddToPlaylist(song); // Call the add to playlist function
+                    }}
+                  >
+                    <img src="/public/images/download.png" className="w-5 h-5" alt="Download" />
                   </button>
                 )}
               </div>
@@ -137,19 +152,15 @@ const TopSong = () => {
         })}
       </div>
 
-      {/* Carousel Controls */}
-      <button
-        onClick={handlePrevious}
-        className="absolute left-[-70px] top-1/2 transform -translate-y-1/2 w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-gray-200 transition"
-      >
-        <img src="public/images/move_right.jpeg" alt="Previous" className="w-7 h-7" />
-      </button>
       
       <button
         onClick={handleNext}
-        className="absolute right-[-70px] top-1/2 transform -translate-y-1/2 w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-gray-200 transition"
+        className="absolute right-[-70px] mt-8 w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-gray-200 transition"
+        style={{
+          top: `${(displayedSongs.length / 10) * 100 / 2}%`, // 10要素分の高さの1/10の中央位置
+        }}
       >
-        <img src="public/images/move_left.jpeg" alt="Next" className="w-7 h-7" />
+        <img src="public/images/move_left.jpeg" alt="Next" className="w-6 h-6" />
       </button>
     </div>
   );

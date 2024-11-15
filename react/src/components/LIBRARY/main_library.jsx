@@ -11,10 +11,10 @@ const MainLibrary = () => {
 
   return (
     <div>
-      <div className="relative min-h-screen">
+      <div className="relative min-h-screen ml-8">
         <div className="flex items-end ml-10 pt-8 mb-4">
-          <p className="text-[50px] leading-none text-gray-600">LIBRARY</p>
-          <p className="text-[20px] leading-none p-2 text-gray-600">ライブラリ</p>
+          <p className="text-5xl leading-none text-gray-800">LIBRARY</p>
+          <p className="text-lg leading-none p-2 text-gray-800">ライブラリ</p>
         </div>
 
         <div className="flex ml-10 mr-10 mt-10 mb-4 bg-white h-10 text-lg">

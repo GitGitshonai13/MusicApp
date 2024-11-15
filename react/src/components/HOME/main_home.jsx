@@ -14,22 +14,22 @@ const MainHome = () => {
       </div> */}
       
       <div>
-        <button className="text-2xl font-bold text-gray-600 ml-24 m-4">おすすめ曲</button>
+        <button className="text-xl font-bold text-gray-800 ml-28 m-4">おすすめ曲</button>
         <Reco_songs />
       </div>
 
       <div>
-        <button className="text-2xl font-bold text-gray-600 ml-24 m-4">ソング TOP 30</button>
+        <button className="text-xl font-bold text-gray-800 ml-28 m-4">ソング TOP 30</button>
         <TopSong />
       </div>
 
       <div>
-        <button className="text-2xl font-bold text-gray-600 ml-24 m-4">最新曲</button>
+        <button className="text-xl font-bold text-gray-800 ml-28 m-4">最新曲</button>
         <New_songs />
       </div>
 
       <div>
-        <button className="text-2xl font-bold text-gray-600 ml-24 m-4">再生履歴</button>
+        <button className="text-xl font-bold text-gray-800 ml-28 m-4">再生履歴</button>
         <HistorySong />
       </div>
     </div>

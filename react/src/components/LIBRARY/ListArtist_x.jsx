@@ -26,7 +26,7 @@ const ArtistList = () => {
     <div className="p-4">
       {error && <p className="text-red-500">{error}</p>}
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 m-8">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-2 m-8">
         {artists.map((artist, index) => (
           <Link
             to={`/artist/${artist.name}`}
@@ -36,7 +36,7 @@ const ArtistList = () => {
             <img
               src={artist.imageUrl}
               alt={`${artist.name}の画像`}
-              className="rounded-full w-72 h-72 object-cover"
+              className="rounded-full w-50 h-50"
             />
             <p className="text-xl  mt-2 text-center text-gray-800">{artist.name}</p>
           </Link>

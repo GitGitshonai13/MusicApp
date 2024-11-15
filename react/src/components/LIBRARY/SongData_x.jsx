@@ -25,12 +25,12 @@ const SongData_x = ({ imgSrc, imgAlt, songName, artistName, songId }) => {
     >
       <button
         onClick={() => handleSongClick(songId)}
-        className="flex items-center bg-white p-2 rounded-lg transition transform cursor-pointer border-b border-t w-5/6 ml-20 "
+        className="flex items-center p-2 rounded-lg transition transform cursor-pointer border-b border-t w-5/6"
       >
-        <img src={imgSrc} alt={imgAlt} className="w-16 h-16 ml-5" />
+        <img src={imgSrc} alt={imgAlt} className="w-16 h-16 ml-5 rounded-md" />
         <div className="flex-1 flex justify-between items-center w-full">
-          <p className="text-xl text-gray-800 ml-64">{songName}</p>
-          <p className="text-xl text-gray-800 mr-64 ">{artistName}</p>
+          <p className="text-xl text-gray-800 ml-20">{songName}</p>
+          <p className="text-xl text-gray-800 mr-36 ">{artistName}</p>
         </div>
       </button>
     </div>

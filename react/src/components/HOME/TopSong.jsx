@@ -97,14 +97,14 @@ const TopSong = () => {
               <img
                 src={imageUrl}
                 alt={song.music_name}
-                className="w-[70px] h-[70px] object-cover rounded-md shadow-md"
+                className="w-20 h-20 object-cover rounded-md shadow-md"
                 onError={(e) => {
                   e.target.src = 'https://via.placeholder.com/70';
                 }}
               />
               <div className="flex-1">
-                <p className="text-sm font-semibold text-gray-900 mb-1">{song.music_name}</p>
-                <p className="text-xs text-gray-600 mb-1">{song.artist_name}</p>
+                <p className="text-base font-semibold text-gray-900 mb-1">{song.music_name}</p>
+                <p className="text-sm text-gray-600 mb-1">{song.artist_name}</p>
               </div>
               {hoveredSongId === song.id && (
                 <button onClick={(e) => {
@@ -122,16 +122,16 @@ const TopSong = () => {
       {/* Carousel Controls */}
       <button
         onClick={handlePrevious}
-        className="absolute left-6 top-1/2 transform -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-gray-200 transition"
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-gray-200 transition"
       >
-        <img src="public/images/move_right.jpeg" alt="Previous" className="w-5 h-5" />
+        <img src="public/images/move_right.jpeg" alt="Previous" className="w-6 h-6" />
       </button>
       
       <button
         onClick={handleNext}
-        className="absolute right-6 top-1/2 transform -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-gray-200 transition"
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-gray-200 transition"
       >
-        <img src="public/images/move_left.jpeg" alt="Next" className="w-5 h-5" />
+        <img src="public/images/move_left.jpeg" alt="Next" className="w-6 h-6" />
       </button>
     </div>
   );

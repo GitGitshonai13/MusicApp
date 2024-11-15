@@ -43,7 +43,7 @@ const ImageGallery = () => {
   return (
     <div>
       {error && <p className="text-red-500 mb-4">{error}</p>}
-      <div className="flex space-x-10 ml-10 mr-10 px-20">
+      <div className="flex space-x-8 ml-10 mr-10 px-20">
         {displayMusic.map((music, index) => (
           <div
             key={index}
@@ -59,14 +59,14 @@ const ImageGallery = () => {
             />
             <div className="flex items-center justify-between mt-2">
               <div>
-                <p className="text-lg text-gray-800 font-semibold">{music.music_name}</p>
-                <p className="text-base text-gray-600">{music.artist_name}</p>
+                <p className="text-base text-gray-800 font-semibold">{music.music_name}</p>
+                <p className="text-sm text-gray-600">{music.artist_name}</p>
               </div>
               {hoveredIndex === index && (
                 <img
                   src="/public/images/download.png"
                   alt="Download"
-                  className="w-6 h-6 ml-2"
+                  className="w-4 h-4 ml-2"
                 />
               )}
             </div>
