@@ -1,0 +1,63 @@
+①npm create vite@latest
+②? Project name: › project名
+③cd react_music_app
+④npm install
+
+npm run dev
+→起動コマンド
+
+「src」フォルダを開き、その中の「assets」フォルダ、「index.css」を削除します。「public」フォルダ内の「vite.svg」も削除しましょう。次のようになります。
+次に「App.css」を開いてください。コードがすでに書かれているので、これを次のようにすべて消します。
+次に「App.jsx」を開いたら、ここでも書かれているコードをすべて消し、次のように書いてください。
+------------
+// App.jsx
+
+import './App.css';
+
+function App() {
+    return (
+        <div>
+            <h1>こんにちは</h1>
+        </div>
+    );
+}
+
+export default App;
+-------------
+
+クリーンアップの最後が「main.jsx」です。開いて次のコードを削除しましょう。
+----------------
+// main.jsx
+
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'               // 削除
+  
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>  
+    <App />
+  </React.StrictMode>,  
+)
+------------------
+
+
+
+
+
+
+オンライン公開
+npm run build
+
+
+
+
+
+単語
+・useState = コンポーネント内で状態管理をしたい変数をこのuseState()を利用して宣言する。
+・useEffect = 関数のタイミングをレンダリングされた後まで遅らせるフック
+                Reactの関数コンポーネント内で副作用を処理するために使用されます。
+                副作用とは、コンポーネントのレンダリング以外の作業、たとえばデータのフェッチ、DOMの操作、サブスクリプションの設定など.
+
+
+
