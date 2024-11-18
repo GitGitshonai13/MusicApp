@@ -109,7 +109,6 @@ const HistorySongs = () => {
               onMouseEnter={() => setHoveredSongId(song.id)}
               onMouseLeave={() => setHoveredSongId(null)}
             >
-              <span className="text-sm font-bold text-gray-800 w-6 text-center">{page * 10 + index + 1}</span>
               <img
                 src={imageUrl}
                 alt={song.music_name}

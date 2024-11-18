@@ -33,6 +33,8 @@ const Artist = ({ artistName }) => {
     try {
       const response = await axios.post('http://127.0.0.1:5000/history/add', { music_id: musicId });
       console.log(response.data.message);
+      window.location.reload();
+
     } catch (error) {
       console.error('履歴の追加に失敗しました:', error);
       alert('履歴の追加に失敗しました');
@@ -54,18 +56,18 @@ const Artist = ({ artistName }) => {
   }, [artistName]); // artistNameが変わるたびにデータを再取得
 
   return (
-    <div className="flex mx-5 my-20">
+    <div className="flex mx-5 my-10">
       <div className="w-1/3 flex flex-col items-center">
         {error && <p className="text-red-500 mb-4">{error}</p>}
         <img
           src={`/public/images/${artistName}.jpg`} 
-          className="rounded-full w-[300px] h-[300px] object-cover shadow-lg mt-20"
+          className="rounded-full w-64 h-64 object-cover shadow-lg mt-10"
           alt={`${artistName}の画像`}
         />
-        <h1 className="text-4xl font-bold text-gray-700 mt-6">{artistName}</h1>
+        <h1 className="text-4xl font-bold text-gray-800 mt-2">{artistName}</h1>
       </div>
   
-      <div className="w-3/5 ml-4 mt-14">
+      <div className="w-3/5 ml-4 mt-2">
         <p className="font-bold text-xl mb-4 text-gray-800">最新曲</p>
         {latestSong && (
           <div 
@@ -80,7 +82,7 @@ const Artist = ({ artistName }) => {
             <div className="flex-1 flex flex-col ml-10">
               <p className="text-[24px] text-gray-800">{latestSong.music_name}</p>
               <p className="text-[20px] text-gray-600">{latestSong.artist_name}</p>
-              <p className="text-[14px] text-gray-500 mt-6">2024.12.01</p>
+              <p className="text-[14px] text-gray-500 mt-6">2024.11.01</p>
             </div>
             <div className="absolute right-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <button onClick={(e) => { e.stopPropagation(); addToPlaylist(latestSong.id); }}>

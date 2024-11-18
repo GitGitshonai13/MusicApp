@@ -59,8 +59,11 @@ const Footer = () => {
   };
 
   const handleAudioEnded = () => {
-    setIsPlaying(false);
-    setProgress(0);
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0; // 再生位置をリセット
+      audioRef.current.play(); // 再生を再開
+    }
+    setIsPlaying(true); // 再生中の状態に更新
   };
 
   useEffect(() => {

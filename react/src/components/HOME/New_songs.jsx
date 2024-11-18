@@ -32,13 +32,26 @@ const ImageGallery = () => {
     }
   };
 
+  // プレイリストに追加する関数
+  const handleAddToPlaylist = async (music) => {
+    try {
+      await axios.post('http://127.0.0.1:5000/playlist/add', {
+        music_id: music.id,
+      });
+      alert('プレイリストに追加されました');
+    } catch (error) {
+      console.error('Error adding song to playlist:', error);
+      alert('プレイリストへの追加に失敗しました');
+    }
+  };
+
   useEffect(() => {
     fetchMusicData();
   }, []);
 
   // id: 1, 4, 10, 11, 12 の音楽データを表示
-  const musicIdsToDisplay = [1, 2, 3, 5, 6];
-  const displayMusic = musicData.filter(music => musicIdsToDisplay.includes(music.id));
+  const musicIdsToDisplay = [30, 34, 27, 22, 12];
+  const displayMusic = musicData.filter((music) => musicIdsToDisplay.includes(music.id));
 
   return (
     <div>
@@ -59,14 +72,18 @@ const ImageGallery = () => {
             />
             <div className="flex items-center justify-between mt-2">
               <div>
-                <p className="text-base text-gray-800 font-semibold">{music.music_name}</p>
+                <p className="text-sm text-gray-800 font-semibold">{music.music_name}</p>
                 <p className="text-sm text-gray-600">{music.artist_name}</p>
               </div>
               {hoveredIndex === index && (
                 <img
                   src="/public/images/download.png"
                   alt="Download"
-                  className="w-4 h-4 ml-2"
+                  className="w-4 h-4 ml-2 cursor-pointer"
+                  onClick={(e) => {
+                    e.stopPropagation(); // クリックイベントが親要素に伝播するのを防止
+                    handleAddToPlaylist(music); // プレイリストに追加
+                  }}
                 />
               )}
             </div>

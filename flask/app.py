@@ -75,6 +75,10 @@ with app.app_context():
 def index():
     return render_template('flask.html')
 
+@app.route('/music-view')
+def music_view():
+    return render_template('music.html')
+
 @app.route('/playlist-view')
 def playlist_view():
     return render_template('playlist.html')
@@ -363,6 +367,10 @@ def add_history():
         # 履歴に曲を追加する既存の関数を呼び出し
         add_to_history(music_id)
 
+        # ここでplay_countを1増加させる
+        music.play_count += 1  # play_countを1増加
+        db.session.commit()  # データベースに変更をコミット
+
         # 音楽データと一緒に表示用の情報を返す
         return jsonify({
             'message': f'History added for {music.music_name} by {music.artist_name}',
@@ -373,7 +381,6 @@ def add_history():
         }), 200
 
     return jsonify({'error': 'Music not found'}), 404
-
 
 @app.route('/history/playlist_add', methods=['POST'])
 def playlist_add_history():

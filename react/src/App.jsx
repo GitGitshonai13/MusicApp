@@ -26,7 +26,7 @@ function App() {
             <Route path="/library" element={<Main_library />} />
             <Route path="/artist/:artistName" element={<ArtistPage />} />
           </Routes>
-          <div className="h-[80px]"></div>
+          <div className="h-20"></div>
 
       </div> 
       <Footer />
